@@ -1,19 +1,25 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/boilerplate",
+	"name": "block/text-box",
 	"version": "0.1.0",
-	"title": "Boilerplate",
-	"category": "widgets",
-	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
-	"example": {},
+	"title": "text box",
+	"category": "text",
+	"description": "creating blocks",
+	"keywords": ["text","paragraph","box"],
 	"supports": {
 		"html": false
 	},
-	"textdomain": "boilerplate",
+	"textdomain": "text-box",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js"
+	"viewScript": "file:./view.js",
+	"attributes": {
+		"text": {
+			"type": "string",
+			"source": "html",
+			"selector": "h4"
+		}
+	}
 }
