@@ -1,0 +1,1 @@
+{"version":3,"file":"./style-index.css","mappings":";;;AAAA;EACE;EACA;AACF,C","sources":["webpack://secondblock/./src/style.scss"],"sourcesContent":[".wp-block-block-second{\n  background: green;\n  color: white;\n}"],"names":[],"sourceRoot":""}

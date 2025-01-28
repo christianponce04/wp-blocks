@@ -1,0 +1,19 @@
+{
+  "name": "secondblock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^30.9.0"
+  },
+  "dependencies": {
+    "@wordpress/block-editor": "^14.11.0"
+  }
+}
