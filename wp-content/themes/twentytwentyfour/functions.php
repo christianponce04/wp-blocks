@@ -146,6 +146,46 @@ endif;
 
 add_action( 'init', 'twentytwentyfour_block_styles' );
 
+function blocks_theme_setup(){
+    add_theme_support( 'editor-styles' );
+    add_editor_style( 'style-editor.css' );
+    add_theme_support( 'responsive-embeds' );
+
+    add_theme_support( 'editor-color-palette', array(
+      array(
+        'name'=> esc_attr__('strong magenta', 'textdomain'),
+        'slug' =>'strong-magenta',
+        'color' => '#a156b4',
+      ),
+      array(
+        'name'=> esc_attr__('very light gray', 'textdomain'),
+        'slug' =>'very-light-gray',
+        'color' => '#eee',
+      )
+    ) );
+  add_theme_support( 'editor-font-sizes', array(
+    array(
+      'name'=> esc_attr__('small', 'textdomain'),
+      'size' => '12',
+      'slug' =>'small',
+    ),
+    array(
+      'name'=> esc_attr__('regular', 'textdomain'),
+      'size' => '16',
+      'slug' =>'regular',
+    ),
+    array(
+      'name'=> esc_attr__('large', 'textdomain'),
+      'size' => '32',
+      'slug' =>'regular',
+    )
+  ) );
+
+    add_theme_support( 'custom-spacing' );
+
+}
+add_action('after_setup_theme', 'blocks_theme_setup');
+
 /**
  * Enqueue block stylesheets.
  */

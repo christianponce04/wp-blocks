@@ -1,0 +1,1 @@
+{"version":3,"file":"./style-index.css","mappings":";;;AAEA;EACE,eAHK;AAEP,C","sources":["webpack://plugins/./src/style.scss"],"sourcesContent":["$color:red;\n\n.wp-block-block-firstblock{\n  background: $color;\n}"],"names":[],"sourceRoot":""}
