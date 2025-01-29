@@ -8,5 +8,15 @@
   "textdomain": "firstblock",
   "editorScript": "file:./build/index.js",
   "style": "file:./build/style-index.css",
-  "editorStyle": "file:./build/index.css"
+  "editorStyle": "file:./build/index.css",
+  "attributes": {
+    "headingText": {
+      "type": "string",
+      "default": "hello world"
+    },
+    "paragraph": {
+      "type": "string",
+      "default": "hello this is parag"
+    }
+  }
 }

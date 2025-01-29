@@ -20,13 +20,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function edit() {
+function edit({
+  attributes,
+  setAttributes
+}) {
+  const {
+    headingText
+  } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
     ...blockProps,
-    children: "first block edit"
+    onChange: text => setAttributes({
+      "headingText": text
+    }),
+    value: headingText,
+    placeholder: "Hello this is placeholder",
+    tagName: "h4"
   });
 }
+;
 
 /***/ }),
 
@@ -69,13 +81,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
 
 
-function save() {
+function save({
+  attributes
+}) {
+  const {
+    headingText
+  } = attributes;
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
     ...blockProps,
-    children: "first block save"
+    value: headingText,
+    tagName: "h4"
   });
 }
+;
 
 /***/ }),
 
