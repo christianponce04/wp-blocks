@@ -25,17 +25,32 @@ function edit({
   setAttributes
 }) {
   const {
-    headingText
+    headingText,
+    textAlignment
   } = attributes;
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
-    ...blockProps,
-    onChange: text => setAttributes({
-      "headingText": text
-    }),
-    value: headingText,
-    placeholder: "Hello this is placeholder",
-    tagName: "h4"
+  const onChangeAlignment = newAlignment => setAttributes({
+    "textAlignment": newAlignment
+  });
+  const onChangeText = newText => setAttributes({
+    "headingText": newText
+  });
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
+    className: `firstblock-text-align-${textAlignment}`
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.BlockControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.AlignmentToolbar, {
+        onChange: onChangeAlignment,
+        value: textAlignment
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
+      ...blockProps,
+      onChange: onChangeText,
+      value: headingText,
+      placeholder: "Hello this is placeholder",
+      tagName: "h4",
+      allowedFormats: []
+    })]
   });
 }
 ;
@@ -85,9 +100,12 @@ function save({
   attributes
 }) {
   const {
-    headingText
+    headingText,
+    textAlignment
   } = attributes;
-  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save();
+  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
+    className: `firstblock-text-align-${textAlignment}`
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
     ...blockProps,
     value: headingText,

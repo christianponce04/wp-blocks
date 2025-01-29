@@ -2,4 +2,14 @@ $color:red;
 
 .wp-block-block-firstblock{
   background: $color;
+
+  &.firstblock-text-align-center{
+    text-align: center;
+  }
+  &.firstblock-text-align-left{
+    text-align: left;
+  }
+  &.firstblock-text-align-right{
+    text-align: right;
+  }
 }

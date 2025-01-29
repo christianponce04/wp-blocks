@@ -4,5 +4,14 @@
 .wp-block-block-firstblock {
   background: red;
 }
+.wp-block-block-firstblock.firstblock-text-align-center {
+  text-align: center;
+}
+.wp-block-block-firstblock.firstblock-text-align-left {
+  text-align: left;
+}
+.wp-block-block-firstblock.firstblock-text-align-right {
+  text-align: right;
+}
 
 /*# sourceMappingURL=style-index.css.map*/

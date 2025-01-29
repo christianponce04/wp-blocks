@@ -14,9 +14,9 @@
       "type": "string",
       "default": "hello world"
     },
-    "paragraph": {
+    "textAlignment": {
       "type": "string",
-      "default": "hello this is parag"
+      "default": "left"
     }
   }
 }
