@@ -4,13 +4,15 @@ import {
   BlockControls,
   AlignmentToolbar,
   InspectorControls,
-  PanelColorSettings, ContrastChecker
+  PanelColorSettings, ContrastChecker,
+  withColors,
 } from "@wordpress/block-editor";
 import "./editor.scss"
 import {     __ } from	'@wordpress/i18n'
 
-export default function edit({attributes,setAttributes}){
-  const  {headingText,textAlignment,backgroundColor,textColor} = attributes
+ function edit(props){
+  const {attributes,setAttributes,backgroundColor,textColor,setBackgroundColor,setTextColor} = props
+  const  {headingText,textAlignment} = attributes
 
   const onChangeAlignment = newAlignment => setAttributes({
     "textAlignment":newAlignment
@@ -20,19 +22,11 @@ export default function edit({attributes,setAttributes}){
       "headingText": newText
   });
 
-  const onChangeBackground = newBackground => setAttributes({
-      "backgroundColor": newBackground
-  });
-
-  const onChangeTextColor = newTextColor => setAttributes({
-      "textColor": newTextColor
-  });
-
   const blockProps =useBlockProps({
     className:`firstblock-text-align-${textAlignment}`,
     style: {
-      backgroundColor,
-      color:textColor,
+      backgroundColor:backgroundColor.color,
+      color:textColor.color,
     }
   });
   return <>
@@ -46,21 +40,21 @@ export default function edit({attributes,setAttributes}){
         disableCustomColors = { false }
         colorSettings ={ [
           {
-            value: backgroundColor,
-            onChange:onChangeBackground,
+            value: backgroundColor.color,
+            onChange:setBackgroundColor,
             label:__("Background Color","text-box")
           },
           {
-            value: textColor,
-            onChange: onChangeTextColor,
+            value: textColor.colo,
+            onChange: setTextColor,
             label:__("Text Color","text-box")
           },
         ]}
       >
 
         <ContrastChecker
-          textColor={textColor}
-          backgroundColor={backgroundColor}
+          textColor={textColor.color}
+          backgroundColor={backgroundColor.color}
         />
 
       </PanelColorSettings>
@@ -83,3 +77,7 @@ export default function edit({attributes,setAttributes}){
         />
     </>
 };
+export default withColors({
+  backgroundColor: "backgroundColor",
+  textColor:"color"
+})(edit);

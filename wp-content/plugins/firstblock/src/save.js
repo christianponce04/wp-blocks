@@ -1,13 +1,24 @@
-import {RichText, useBlockProps} from "@wordpress/block-editor";
+import {RichText, useBlockProps,getColorClassName} from "@wordpress/block-editor";
+import classnames from "classnames"
 
 export default function save({attributes}){
-  const {headingText,textAlignment,backgroundColor,textColor} = attributes;
+
+  const {headingText,textAlignment,backgroundColor,textColor,customBackgroundColor,customTextColor} = attributes;
+
+  const backgroundClass = getColorClassName("background-color",backgroundColor)
+  const textClass = getColorClassName("color",textColor)
+
+  const classes = classnames( `firstblock-text-align-${textAlignment}`,{
+      [backgroundClass]:backgroundColor,
+      [textClass]:textColor
+  });
+
   const blockProps = useBlockProps.save(
     {
-      className:`firstblock-text-align-${textAlignment}`,
+      className:classes,
       style:{
-        backgroundColor,
-        color: textColor
+        backgroundColor: backgroundClass ? undefined : customBackgroundColor,
+        color: backgroundColor ? undefined : customTextColor
       }
     }
   );
