@@ -3,6 +3,7 @@ import { registerBlockType } from '@wordpress/blocks';
 import './style.scss';
 import Edit from './edit';
 import save from './save';
+import {__ } from	'@wordpress/i18n';
 
 registerBlockType( 'block/text-box', {
 	icon: {
@@ -12,4 +13,10 @@ registerBlockType( 'block/text-box', {
 	},
 	edit: Edit,
  	save:save,
+	variations:[{
+		name:'block/text-box',
+		title:__('Gradient Text Box'),
+		icon: 'wordpress',
+
+	}]
 } );
