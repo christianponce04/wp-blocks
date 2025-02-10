@@ -5,22 +5,17 @@ import {
 	AlignmentToolbar,
 	InspectorControls,
 	PanelColorSettings,
-	ContrastChecker
+	ContrastChecker,
+	withColors
 } from '@wordpress/block-editor';
 import './editor.scss';
-import { __ } from	'@wordpress/i18n'
+import {     __ } from	'@wordpress/i18n'
 
 
-export default function Edit({attributes, setAttributes}) {
-	const {text,alignment,backgroundColor,textColor} = attributes
+function Edit(props) {
+	const {attributes, setAttributes, backgroundColor,textColor,setBackgroundColor,setTextColor} = props
+	const {text,alignment} = attributes
 
-	const onChangeBackgroundColor = (newBackground) => {
-		setAttributes({ backgroundColor:newBackground})
-	};
-
-	const onChangeTextColor = (newTextColor) => {
-		setAttributes({ textColor:newTextColor})
-	};
 
 	const onChangeAlignment = (newAlign) => {
 		setAttributes({ alignment:newAlign})
@@ -41,19 +36,19 @@ export default function Edit({attributes, setAttributes}) {
 					disableCustomColors = { false}
 					colorSettings ={ [
 						{
-							value: backgroundColor,
-							onChange:onChangeBackgroundColor,
+							value: backgroundColor.color,
+							onChange:setBackgroundColor,
 							label:__("Background Color","text-box")
 						},
 						{
-							value: textColor,
-							onChange: onChangeTextColor,
+							value: textColor.color,
+							onChange: setTextColor,
 							label:__("Text Color","text-box")
 						},
 					]}
 				>
 					<ContrastChecker
-						textColor ={ textColor}
+						textColor ={ textColor.color}
 						backgroundColor ={ backgroundColor}
 					/>
 				</PanelColorSettings>
@@ -67,8 +62,8 @@ export default function Edit({attributes, setAttributes}) {
 			<RichText {...useBlockProps({
 				className:`text-box-align-${alignment}`,
 				style:{
-					backgroundColor,
-					color: textColor
+					backgroundColor: backgroundColor.color,
+					color: textColor.color,
 				}
 			})}
 								onChange={onChangeText}
@@ -80,3 +75,7 @@ export default function Edit({attributes, setAttributes}) {
 		</div>
 	);
 }
+export default  withColors({
+	backgroundColor : 'backgroundColor',
+	textColor:'color',
+})(Edit);

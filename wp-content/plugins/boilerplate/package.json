@@ -18,6 +18,7 @@
 		"@wordpress/scripts": "^30.9.0"
 	},
 	"dependencies": {
-		"@wordpress/components": "^29.2.0"
+		"@wordpress/components": "^29.2.0",
+		"classnames": "^2.5.1"
 	}
 }
