@@ -1,4 +1,10 @@
 .wp-block-block-text-box {
+	&.is-style-rounded{
+		border-radius: 30px;
+	}
+	&.is-style-squared{
+		border-radius: 0;
+	}
 	&.has-shadow{
 		box-shadow: 0 0 20px rgba(0,0,0,0.3);
 		&.shadow-opacity-10{
