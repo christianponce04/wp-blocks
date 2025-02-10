@@ -48,6 +48,14 @@
 						"bottom": "50px","left": "50px"}
 				}
 			}
+		},
+		"shadow": {
+			"type": "boolean",
+			"default": false
+		},
+		"shadowOpacity": {
+			"type": "number",
+			"default": 30
 		}
 	}
 }

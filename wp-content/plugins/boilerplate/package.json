@@ -20,6 +20,7 @@
 	"dependencies": {
 		"@wordpress/components": "^29.3.0",
 		"@wordpress/element": "^6.17.0",
-		"classnames": "^2.5.1"
+		"classnames": "^2.5.1",
+		"wordpress": "^1.4.2"
 	}
 }
