@@ -16,6 +16,9 @@
     "color": {
       "background": true,
       "text": true
+    },
+    "spacing": {
+      "padding": true
     }
   },
   "textdomain": "text-box",
@@ -40,6 +43,19 @@
     "textColor": {
       "type": "string",
       "default": "base-2"
+    },
+    "style": {
+      "type": "object",
+      "default": {
+        "spacing": {
+          "padding": {
+            "top": "50px",
+            "right": "50px",
+            "bottom": "50px",
+            "left": "50px"
+          }
+        }
+      }
     }
   }
 }

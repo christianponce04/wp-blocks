@@ -6,8 +6,9 @@ import {
 } from '@wordpress/block-editor';
 import './editor.scss';
 
+
 export default function Edit(props) {
-	const {attributes, setAttributes} = props
+	const {attributes, setAttributes, style} = props
 	const {text,alignment} = attributes
 
 	const onChangeAlignment = (newAlign) => {
@@ -33,6 +34,8 @@ export default function Edit(props) {
 								tagName="h4"
 								allowedFormats={[]}
 			/>
+
+
 		</div>
 	);
 }

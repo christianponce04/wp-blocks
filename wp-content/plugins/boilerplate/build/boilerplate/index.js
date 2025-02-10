@@ -23,7 +23,8 @@ __webpack_require__.r(__webpack_exports__);
 function Edit(props) {
   const {
     attributes,
-    setAttributes
+    setAttributes,
+    style
   } = props;
   const {
     text,
