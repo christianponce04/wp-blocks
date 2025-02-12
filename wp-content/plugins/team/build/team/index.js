@@ -194,6 +194,7 @@ function Edit({
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
       allowedBlocks: ['block-course/team-member'],
+      orientation: "horizontal",
       template: [['block-course/team-member'], ['block-course/team-member'], ['block-course/team-member']]
     })]
   });

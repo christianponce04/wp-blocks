@@ -1,6 +1,29 @@
 
-.wp-block-create-block-team {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+.wp-block-block-course-team-members {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	@for $i from 1 through 6{
+		&.has-#{$i}-columns{
+			.wp-block-block-course-team-member{
+				width: calc(100% / #{$i} - 50px);
+				box-shadow: 0 0 3px rgba(0,0,0,0.5);
+				text-align: center;
+				padding: 15px;
+			}
+		}
+	}
+		.wp-block-block-course-team-member{
+			h4{
+				margin: 0;
+				text-transform: uppercase;
+				font-weight: bold;
+				line-height: 100%;
+			}
+			p{
+				margin: 0;
+				font-style: italic;
+				font-weight: lighter;
+			}
+	}
 }
