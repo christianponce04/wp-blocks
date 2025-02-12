@@ -30,6 +30,20 @@
 			padding: 15px;
 			box-shadow: 0 0 3px rgba(0,0,0,0.5);
 			text-align: center;
+			.wp-block-block-course-team-members-img{
+				position: relative;
+				&.is-loading img{
+					opacity: 0.3;
+				}
+				.components-spinner	{
+					position: absolute;
+					left: 0;
+					right: 0;
+					top: 0;
+					bottom: 0;
+					margin: auto;
+				}
+			}
 			h4{
 				margin: 10px 0 0 0;
 				text-transform: uppercase;

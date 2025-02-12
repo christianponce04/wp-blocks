@@ -1,9 +1,11 @@
 
 import { useBlockProps, RichText,MediaPlaceholder } from '@wordpress/block-editor';
 import {__} from	'@wordpress/i18n';
+import { isBlobURL } from "@wordpress/blob"
+import  { Spinner } from	"@wordpress/components"
 
 export default  function Edit({attributes,setAttributes}) {
-	const {name,bio} = attributes;
+	const {name,bio,alt,url} = attributes;
 
 	const  onChangeName = (newName) =>{
 		setAttributes({ name: newName})
@@ -12,15 +14,30 @@ export default  function Edit({attributes,setAttributes}) {
 		setAttributes({ bio: newBio})
 	}
 
+	const onSelectImage = (image) =>{
+		if(!image || !image.url ){
+			setAttributes({ url:undefined, alt:undefined, id:undefined })
+			return;
+		}
+		setAttributes({ url:image.url, alt:image.alt, id:image.id })
+	}
+
 	return(
 		<div {...useBlockProps()}>
+			{url &&
+					<div
+					className={`wp-block-block-course-team-members-img${isBlobURL(url) ? ` is-loading`: ''}`}>
+					<img	src={url} alt={alt}/>
+						{isBlobURL(url) && <Spinner/>}
+					</div>}
 			<MediaPlaceholder
 				icon="admin-users"
-				onSelect = { ( val ) => console.log(val) }
+				onSelect = { onSelectImage }
 				onSelectURL= {(val) => console.log(val) }
 				onError = {(err) => console.log(err)}
 				accept = "image/*"
 				allowedTypes={['image']}
+				disableMediaButtons={ url }
 			/>
 			<RichText
 				placeholder={__("Member name:",'team-member')}
