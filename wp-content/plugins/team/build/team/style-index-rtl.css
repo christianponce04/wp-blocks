@@ -43,7 +43,7 @@
   padding: 15px;
 }
 .wp-block-block-course-team-members .wp-block-block-course-team-member h4 {
-  margin: 0;
+  margin: 10px 0 0 0;
   text-transform: uppercase;
   font-weight: bold;
   line-height: 100%;
