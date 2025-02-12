@@ -5,9 +5,12 @@ import './editor.scss';
 export default function Edit() {
 	return (
 		<div {...useBlockProps()}>
-			<InnerBlocks allowedBlocks={
-			['block-course/team-member']
-			}
+			<InnerBlocks allowedBlocks={['block-course/team-member']}
+									template={[
+										['block-course/team-member'],
+										['block-course/team-member'],
+										['block-course/team-member'],
+									]}
 			/>
 		</div>
 	);
