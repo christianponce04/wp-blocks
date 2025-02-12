@@ -1,8 +1,8 @@
 
-import { useBlockProps, RichText,MediaPlaceholder,BlockControls,MediaReplaceFlow } from '@wordpress/block-editor';
+import { useBlockProps, RichText,MediaPlaceholder,BlockControls,MediaReplaceFlow,InspectorControls } from '@wordpress/block-editor';
 import {__} from	'@wordpress/i18n';
 import { isBlobURL } from "@wordpress/blob"
-import  { Spinner,withNotices,ToolbarButton } from	"@wordpress/components"
+import  { Spinner,withNotices,ToolbarButton,PanelBody, TextareaControl} from	"@wordpress/components"
 
  function Edit({attributes,setAttributes,noticeUI,noticeOperations}) {
 	const {name,bio,alt,url,id} = attributes;
@@ -21,6 +21,9 @@ import  { Spinner,withNotices,ToolbarButton } from	"@wordpress/components"
 		setAttributes({ url:image.url, alt:image.alt, id:image.id })
 	}
 
+	const onChangeAlt = (newAlt) =>{
+		setAttributes({alt:newAlt})
+	}
 	const onSelectURL= (newURL) =>{
 		setAttributes({
 			url: newURL,
@@ -43,6 +46,20 @@ import  { Spinner,withNotices,ToolbarButton } from	"@wordpress/components"
 
 	return(
 		<>
+			<InspectorControls>
+				<PanelBody
+				title={__('Image Settings','Team-members')}
+				>
+					{url &&
+					<TextareaControl
+						label={__('Alt Text','Team-members')}
+						value	={alt}
+						onChange={onChangeAlt}
+						help={__('alternative Text describes your image')}
+					/>
+					}
+				</PanelBody>
+			</InspectorControls>
 			{ url &&
 			<BlockControls group="inline">
 				<MediaReplaceFlow
