@@ -42,6 +42,11 @@
   text-align: center;
   padding: 15px;
 }
+.wp-block-block-course-team-members .wp-block-block-course-team-member img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 .wp-block-block-course-team-members .wp-block-block-course-team-member h4 {
   margin: 10px 0 0 0;
   text-transform: uppercase;

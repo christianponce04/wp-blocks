@@ -14,6 +14,12 @@
 		}
 	}
 		.wp-block-block-course-team-member{
+			img {
+				max-width: 100%;
+				height: auto;
+				display: block;
+			}
+
 			h4{
 				margin: 10px 0 0 0;
 				text-transform: uppercase;
