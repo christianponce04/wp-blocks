@@ -97,6 +97,17 @@ function Edit({
 			})
 	}
 
+	const removeSocialItem =() =>{
+		setAttributes({
+			socialLinks:[
+				...socialLinks.slice(0,selectedLink),
+				...socialLinks.slice(selectedLink + 1),
+
+			],
+		})
+		setSelectedLink();
+	};
+
 	useEffect(() => {
 		if (url && !prevURL) {
 			titleRef.current.focus();
@@ -226,7 +237,7 @@ function Edit({
 						}}
 					/>
 
-					<Button isDestructive>{__('Remove Link', 'text-members')}</Button>
+					<Button isDestructive onClick={removeSocialItem}>{__('Remove Link', 'text-members')}</Button>
 				</div>
 				}
 			</div>

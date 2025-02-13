@@ -116,6 +116,12 @@ function Edit({
       socialLinks: socialLinksCopy
     });
   };
+  const removeSocialItem = () => {
+    setAttributes({
+      socialLinks: [...socialLinks.slice(0, selectedLink), ...socialLinks.slice(selectedLink + 1)]
+    });
+    setSelectedLink();
+  };
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     if (url && !prevURL) {
       titleRef.current.focus();
@@ -228,6 +234,7 @@ function Edit({
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
           isDestructive: true,
+          onClick: removeSocialItem,
           children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Remove Link', 'text-members')
         })]
       })]
