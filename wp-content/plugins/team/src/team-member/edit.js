@@ -1,11 +1,17 @@
+import  {useRef,useEffect} from	'@wordpress/element'
 
 import { useBlockProps, RichText,MediaPlaceholder,BlockControls,MediaReplaceFlow,InspectorControls } from '@wordpress/block-editor';
 import {__} from	'@wordpress/i18n';
 import { isBlobURL } from "@wordpress/blob"
 import  { Spinner,withNotices,ToolbarButton,PanelBody, TextareaControl} from	"@wordpress/components"
+import  { usePrevious} from	'@wordpress/compose'
 
  function Edit({attributes,setAttributes,noticeUI,noticeOperations}) {
+
 	const {name,bio,alt,url,id} = attributes;
+	const titleRef = useRef();
+	const prevURL = usePrevious(url)
+
 	const  onChangeName = (newName) =>{
 		setAttributes({ name: newName})
 	}
@@ -43,6 +49,11 @@ import  { Spinner,withNotices,ToolbarButton,PanelBody, TextareaControl} from	"@w
 			id:undefined,
 		})
 	}
+
+	 useEffect(() => {
+		 if(url && !prevURL)
+		titleRef.current.focus();
+	 }, [url,prevURL]);
 
 	return(
 		<>
@@ -95,6 +106,7 @@ import  { Spinner,withNotices,ToolbarButton,PanelBody, TextareaControl} from	"@w
 					notices = {noticeUI}
 				/>
 				<RichText
+					ref	= { titleRef}
 					placeholder={__("Member name:",'team-member')}
 					tagName="h4"
 					onChange= {onChangeName}
