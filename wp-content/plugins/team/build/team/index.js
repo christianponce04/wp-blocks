@@ -109,6 +109,13 @@ function Edit({
     });
     setSelectedLink(socialLinks.length);
   };
+  const updateSocialItem = (type, value) => {
+    const socialLinksCopy = [...socialLinks];
+    socialLinksCopy[selectedLink][type] = value;
+    setAttributes({
+      socialLinks: socialLinksCopy
+    });
+  };
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     if (url && !prevURL) {
       titleRef.current.focus();
@@ -208,9 +215,17 @@ function Edit({
       }), selectedLink !== undefined && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "wp-block-block-course-team-members-link-form",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Icon', 'text-members')
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Icon', 'text-members'),
+          value: socialLinks[selectedLink].icon,
+          onChange: icon => {
+            updateSocialItem('icon', icon);
+          }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('URL', 'text-members')
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('URL', 'text-members'),
+          value: socialLinks[selectedLink].link,
+          onChange: link => {
+            updateSocialItem('link', link);
+          }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
           isDestructive: true,
           children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Remove Link', 'text-members')

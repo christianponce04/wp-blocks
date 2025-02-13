@@ -89,6 +89,14 @@ function Edit({
 		setSelectedLink(socialLinks.length);
 	}
 
+	const updateSocialItem =(type,value) =>{
+			const socialLinksCopy = [...socialLinks];
+			socialLinksCopy[selectedLink][type] = value
+			setAttributes({
+				socialLinks:socialLinksCopy
+			})
+	}
+
 	useEffect(() => {
 		if (url && !prevURL) {
 			titleRef.current.focus();
@@ -203,8 +211,20 @@ function Edit({
 				</div>
 				{selectedLink !== undefined &&
 				<div className='wp-block-block-course-team-members-link-form'>
-					<TextControl label={__('Icon', 'text-members')}/>
-					<TextControl label={__('URL', 'text-members')}/>
+					<TextControl
+						label={__('Icon', 'text-members')}
+						value={socialLinks[selectedLink].icon}
+						onChange={(icon) =>{
+							updateSocialItem('icon',icon);
+						}}
+					/>
+					<TextControl
+						label={__('URL', 'text-members')}
+						value={socialLinks[selectedLink].link}
+						onChange={(link) =>{
+							updateSocialItem('link',link);
+						}}
+					/>
 
 					<Button isDestructive>{__('Remove Link', 'text-members')}</Button>
 				</div>
