@@ -44,7 +44,20 @@ registerBlockType('block-course/team-member',{
 				default:[
 					{link: 'https://www.facebook.com/',icon:'facebook-alt'},
 					{link: 'https://www.instagram.com/',icon:'instagram'},
-				]
+				],
+				source:'query',
+				selector:'.wp-block-block-course-team-members-social-links ul li',
+				query:{
+					icon:{
+						source: 'attribute',
+						attribute: 'data-icon',
+					},
+					link:{
+						source:'attribute',
+						selector:'a',
+						attribute:'href',
+					},
+				}
 			},
 		},
 		edit: Edit,
