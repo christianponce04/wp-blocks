@@ -115,3 +115,28 @@
   font-style: italic;
   font-weight: lighter;
 }
+.wp-block-block-course-team-members > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="block-course/team-member"] .wp-block-block-course-team-members-social-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+.wp-block-block-course-team-members > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="block-course/team-member"] .wp-block-block-course-team-members-social-links ul li {
+  display: inline-block;
+  margin: 5px;
+}
+.wp-block-block-course-team-members > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="block-course/team-member"] .wp-block-block-course-team-members-social-links ul li span.dashicon {
+  color: #4e4e4e;
+}
+.wp-block-block-course-team-members > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="block-course/team-member"] .wp-block-block-course-team-members-social-links ul li.is-selected {
+  outline: 2px solid rgb(0, 0, 0);
+}
+.wp-block-block-course-team-members > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="block-course/team-member"] .wp-block-block-course-team-members-social-links ul li button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin: 0;
+}
+.wp-block-block-course-team-members > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="block-course/team-member"] .wp-block-block-course-team-members-social-links ul li.wp-block-block-course-team-members-add-icon-li button {
+  outline: 1px dashed;
+}

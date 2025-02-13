@@ -1,16 +1,39 @@
-import  {useRef,useEffect} from	'@wordpress/element'
+import  {
+	useRef,
+	useState,
+	useEffect
+} from	'@wordpress/element'
 
-import { useBlockProps, RichText,MediaPlaceholder,BlockControls,MediaReplaceFlow,InspectorControls } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	RichText,
+	MediaPlaceholder,
+	BlockControls,
+	MediaReplaceFlow,
+	InspectorControls
+} from '@wordpress/block-editor';
 import {__} from	'@wordpress/i18n';
 import { isBlobURL } from "@wordpress/blob"
-import  { Spinner,withNotices,ToolbarButton,PanelBody, TextareaControl} from	"@wordpress/components"
+import  {
+	Spinner,
+	withNotices,
+	ToolbarButton,
+	PanelBody,
+	TextareaControl,
+	Icon,
+	Tooltip,
+} from	"@wordpress/components"
 import  { usePrevious} from	'@wordpress/compose'
 
- function Edit({attributes,setAttributes,noticeUI,noticeOperations}) {
+ function Edit({attributes,setAttributes,noticeUI,noticeOperations,isSelected}) {
 
-	const {name,bio,alt,url,id} = attributes;
+	const {name,bio,alt,url,id,socialLinks} = attributes;
 	const titleRef = useRef();
-	const prevURL = usePrevious(url)
+
+	 const [selectedLink,setSelectedLink] = useState();
+
+	 const prevURL = usePrevious(url);
+	 const prevIsSelected = usePrevious(isSelected);
 
 	const  onChangeName = (newName) =>{
 		setAttributes({ name: newName})
@@ -50,10 +73,24 @@ import  { usePrevious} from	'@wordpress/compose'
 		})
 	}
 
+	const addNewSocialItem = () => {
+			setAttributes({
+				socialLinks: [...socialLinks, {icon:'wordpress',link:''},
+				],
+			});
+			setSelectedLink(socialLinks.length);
+	}
+
 	 useEffect(() => {
 		 if(url && !prevURL)
 		titleRef.current.focus();
 	 }, [url,prevURL]);
+
+	 useEffect(() => {
+		 if(prevIsSelected && ! isSelected){
+			 setSelectedLink();
+		 }
+	 }, [isSelected,prevIsSelected]);
 
 	return(
 		<>
@@ -120,6 +157,40 @@ import  { usePrevious} from	'@wordpress/compose'
 					value={bio}
 					allowedFormats={[]}
 				/>
+				<div className='wp-block-block-course-team-members-social-links'>
+					<ul>
+						{socialLinks.map( (item,index) =>{
+							return(
+								<li key={index} className={selectedLink === index ? 'is-selected' :null	}>
+									<button aria-label={__('Edit Social Link', 'team-members')}
+										onClick={() =>{
+												setSelectedLink(index)
+										}}
+									>
+										<Icon  icon={item.icon}/>
+									</button>
+								</li>
+							)
+						} )}
+						{isSelected &&
+						<li className='wp-block-block-course-team-members-add-icon-li'>
+						<Tooltip text={__(
+							'Add Social Link',
+								'team-members'
+						)}>
+							<button aria-label={__(
+								'Add Social Link',
+								'team-members'
+							)}
+							onClick={addNewSocialItem}
+							>
+								<Icon icon="plus"/>
+							</button>
+						</Tooltip>
+						</li>
+						}
+					</ul>
+				</div>
 			</div>
 		</>
 	);

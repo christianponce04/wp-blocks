@@ -39,6 +39,13 @@ registerBlockType('block-course/team-member',{
 				selector:'img',
 				attribute:'src'
 			},
+			socialLinks:{
+				type:'array',
+				default:[
+					{link: 'https://www.facebook.com/',icon:'facebook-alt'},
+					{link: 'https://www.instagram.com/',icon:'instagram'},
+				]
+			},
 		},
 		edit: Edit,
 		save: Save,

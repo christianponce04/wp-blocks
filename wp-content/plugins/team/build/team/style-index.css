@@ -46,6 +46,7 @@
   max-width: 100%;
   height: auto;
   display: block;
+  margin: 0 auto;
 }
 .wp-block-block-course-team-members .wp-block-block-course-team-member h4 {
   margin: 10px 0 0 0;
@@ -57,6 +58,21 @@
   margin: 0;
   font-style: italic;
   font-weight: lighter;
+}
+.wp-block-block-course-team-members .wp-block-block-course-team-member .wp-block-block-course-team-members-social-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+.wp-block-block-course-team-members .wp-block-block-course-team-member .wp-block-block-course-team-members-social-links ul li {
+  display: inline-block;
+  margin: 5px;
+}
+.wp-block-block-course-team-members .wp-block-block-course-team-member .wp-block-block-course-team-members-social-links ul li a {
+  text-decoration: none;
+}
+.wp-block-block-course-team-members .wp-block-block-course-team-member .wp-block-block-course-team-members-social-links ul li span.dashicon {
+  color: #4e4e4e;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

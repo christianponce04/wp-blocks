@@ -55,6 +55,36 @@
 				font-style: italic;
 				font-weight: lighter;
 			}
+			.wp-block-block-course-team-members-social-links{
+				ul{
+					list-style: none;
+					padding: 0;
+					margin: 10px 0 0 0;
+					li{
+						display: inline-block;
+						margin:5px;
+						span.dashicon{
+							color: #4e4e4e;
+						}
+						&.is-selected{
+							outline: 2px solid rgba(0,0,0);
+						}
+						button{
+							background: none;
+							border: none;
+							padding: 0;
+							cursor: pointer;
+							margin: 0;
+						}
+
+						&.wp-block-block-course-team-members-add-icon-li{
+								button{
+									outline: 1px dashed;
+								}
+						}
+					}
+				}
+			}
 		}
 
 	}
