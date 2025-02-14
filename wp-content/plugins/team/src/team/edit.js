@@ -2,12 +2,18 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps,InnerBlocks,InspectorControls } from '@wordpress/block-editor';
 import {PanelBody,RangeControl} from	'@wordpress/components'
 import './editor.scss';
+import {useHasSelectedInnerBlock} from "@10up/block-components";
 
-export default function Edit({attributes,setAttributes}) {
+
+export default function Edit({attributes,setAttributes,isSelected}) {
 	const {columns} = attributes;
 	const onChangeColumns =(newColumns) => {
 		setAttributes({ columns:newColumns })
 	}
+	const hasSelectedInnerBlock = useHasSelectedInnerBlock();
+	const isActive = isSelected || hasSelectedInnerBlock;
+
+	console.log(hasSelectedInnerBlock);
 
 	return (
 		<div {...useBlockProps({
@@ -31,6 +37,7 @@ export default function Edit({attributes,setAttributes}) {
 											['block-course/team-member'],
 											['block-course/team-member'],
 										]}
+									 renderAppender={isActive && InnerBlocks.ButtonBlockAppender}
 			/>
 		</div>
 	);
