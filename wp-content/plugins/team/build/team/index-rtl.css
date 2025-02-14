@@ -9,72 +9,78 @@
 }
 .wp-block-block-course-team-members.has-1-columns .block-list-appender {
   align-self: stretch;
-  width: calc(100% / 1);
+  width: calc(97% / 1);
   border: 1px dashed;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 70px;
+  position: relative;
 }
 .wp-block-block-course-team-members.has-2-columns > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="block-course/team-member"] {
   width: calc(100% / 2 - 40px);
 }
 .wp-block-block-course-team-members.has-2-columns .block-list-appender {
   align-self: stretch;
-  width: calc(100% / 2);
+  width: calc(97% / 2);
   border: 1px dashed;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 70px;
+  position: relative;
 }
 .wp-block-block-course-team-members.has-3-columns > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="block-course/team-member"] {
   width: calc(100% / 3 - 40px);
 }
 .wp-block-block-course-team-members.has-3-columns .block-list-appender {
   align-self: stretch;
-  width: calc(100% / 3);
+  width: calc(97% / 3);
   border: 1px dashed;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 70px;
+  position: relative;
 }
 .wp-block-block-course-team-members.has-4-columns > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="block-course/team-member"] {
   width: calc(100% / 4 - 40px);
 }
 .wp-block-block-course-team-members.has-4-columns .block-list-appender {
   align-self: stretch;
-  width: calc(100% / 4);
+  width: calc(97% / 4);
   border: 1px dashed;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 70px;
+  position: relative;
 }
 .wp-block-block-course-team-members.has-5-columns > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="block-course/team-member"] {
   width: calc(100% / 5 - 40px);
 }
 .wp-block-block-course-team-members.has-5-columns .block-list-appender {
   align-self: stretch;
-  width: calc(100% / 5);
+  width: calc(97% / 5);
   border: 1px dashed;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 70px;
+  position: relative;
 }
 .wp-block-block-course-team-members.has-6-columns > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="block-course/team-member"] {
   width: calc(100% / 6 - 40px);
 }
 .wp-block-block-course-team-members.has-6-columns .block-list-appender {
   align-self: stretch;
-  width: calc(100% / 6);
+  width: calc(97% / 6);
   border: 1px dashed;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 70px;
+  position: relative;
 }
 .wp-block-block-course-team-members > .block-editor-inner-blocks > .block-editor-block-list__layout {
   display: flex;

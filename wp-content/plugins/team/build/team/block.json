@@ -12,7 +12,6 @@
     "Members",
     "Grid"
   ],
-  "example": {},
   "supports": {
     "html": false,
     "align": [
@@ -29,5 +28,31 @@
       "type": "number",
       "default": 2
     }
+  },
+  "example": {
+    "attributes": {
+      "columns": 2
+    },
+    "innerBlocks": [
+      {
+        "name": "block-course/team-member",
+        "attributes": {
+          "name": "John Doe",
+          "bio": "This is an example paragraph",
+          "url": "https://picsum.photos/id/237/200/300",
+          "socialLinks": [
+            {
+              "icon": "facebook"
+            },
+            {
+              "icon": "twitter"
+            },
+            {
+              "icon": "instagram"
+            }
+          ]
+        }
+      }
+    ]
   }
 }

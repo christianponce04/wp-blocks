@@ -5575,7 +5575,7 @@ function Edit({
     }
   };
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    if (url && !prevURL) {
+    if (url && !prevURL && isSelected) {
       titleRef.current.focus();
     }
   }, [url, prevURL]);
@@ -5757,13 +5757,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     socialLinks: {
       type: 'array',
-      default: [{
-        link: 'https://www.facebook.com/',
-        icon: 'facebook-alt'
-      }, {
-        link: 'https://www.instagram.com/',
-        icon: 'instagram'
-      }],
+      default: [],
       source: 'query',
       selector: '.wp-block-block-course-team-members-social-links ul li',
       query: {
