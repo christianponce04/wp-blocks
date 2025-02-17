@@ -25,7 +25,7 @@ import {
 	TextControl,
 	Button
 } from "@wordpress/components";
-import { restrictToHorizontalAxis } from "@dnd-kit/modifiers"
+import {restrictToHorizontalAxis} from "@dnd-kit/modifiers"
 import {usePrevious} from '@wordpress/compose';
 import {DndContext, useSensor, useSensors, PointerSensor} from "@dnd-kit/core";
 import {
@@ -51,8 +51,8 @@ function Edit({
 
 	const prevURL = usePrevious(url);
 	const prevIsSelected = usePrevious(isSelected);
-	const sensors = useSensors(useSensor(PointerSensor,{
-		activationConstraint:{distance:5},
+	const sensors = useSensors(useSensor(PointerSensor, {
+		activationConstraint: {distance: 5},
 	}))
 
 
@@ -122,13 +122,13 @@ function Edit({
 	};
 
 	const handleDragEnd = (event) => {
-		const{active,over}= event
+		const {active, over} = event
 
-		if(active && over && active.id !== over.id){
+		if (active && over && active.id !== over.id) {
 			const oldIndex = socialLinks.findIndex((i) => active.id === `${i.icon}-${i.link}`);
 			const newIndex = socialLinks.findIndex((i) => over.id === `${i.icon}-${i.link}`);
 			setAttributes({
-				socialLinks: arrayMove(socialLinks,oldIndex,newIndex)
+				socialLinks: arrayMove(socialLinks, oldIndex, newIndex)
 			})
 			setSelectedLink(newIndex)
 		}
@@ -224,7 +224,7 @@ function Edit({
 							)}
 															 strategy={horizontalListSortingStrategy}
 							>
-								{socialLinks.map((item,index) => {
+								{socialLinks.map((item, index) => {
 									return (
 										<SortableItem
 											key={`${item.icon}-${item.link}`}
