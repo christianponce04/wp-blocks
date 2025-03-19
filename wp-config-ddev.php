@@ -20,13 +20,16 @@ if ( getenv( 'IS_DDEV_PROJECT' ) == 'true' ) {
 	defined( 'DB_HOST' ) || define( 'DB_HOST', 'ddev-wp-site-db' );
 
 	/** WP_HOME URL */
-	defined( 'WP_HOME' ) || define( 'WP_HOME', 'https://wp-site.ddev.site:8443' );
+	defined( 'WP_HOME' ) || define( 'WP_HOME', 'https://wp-site.ddev.site' );
 
 	/** WP_SITEURL location */
 	defined( 'WP_SITEURL' ) || define( 'WP_SITEURL', WP_HOME . '/' );
 
 	/** Enable debug */
 	defined( 'WP_DEBUG' ) || define( 'WP_DEBUG', true );
+
+	/** WordPress environment type. */
+	defined( 'WP_ENVIRONMENT_TYPE' ) || define( 'WP_ENVIRONMENT_TYPE', 'local' );
 
 	/**
 	 * Set WordPress Database Table prefix if not already set.
